@@ -15,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   map.create_story '/create_story/:book_id', :controller => 'stories', :action => 'new'
   map.create_paragraph '/create_paragraph/:story_id', :controller => 'paragraphs', :action => 'new'
   
+  map.edit_book '/edit_book/:book_id', :controller => 'books', :action => 'edit'
   map.edit_story '/edit_story/:book_id/:story_id', :controller => 'stories', :action => 'edit'
   map.edit_paragraph '/edit_paragraph/:story_id/:paragraph_id', :controller => 'paragraphs', :action => 'edit'
 

@@ -6,10 +6,11 @@
 <%= f.text_area :description, :rows => 2, :cols => 80 %></p>
 <%= f.hidden_field :book_id, :value => @book.id %>
 
-  <%= link_to "add new paragraph", create_paragraph_path(@story.id) %>
+
     <hr>
     
 <table>
+
   <% @story.paragraphs.each do |paragraph| %>
 
     <tr>
