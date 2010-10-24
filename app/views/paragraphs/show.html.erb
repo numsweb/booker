@@ -5,4 +5,4 @@
 
 <%= link_to "Edit " + @paragraph.body_text[0...20], edit_paragraph_path(:story_id=> @paragraph.story.id, :paragraph_id => @paragraph.id) %>
  |
-<%= link_to 'Back', paragraphs_path %>
+<%= link_to 'Back', edit_story_path(:book_id=> @paragraph.story.book.id, :story_id => @paragraph.story.id)  %>
