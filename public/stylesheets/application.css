@@ -9,14 +9,15 @@ body {
   color: #A0522d; /* Sienna */
 }
 
-li {
+#navigation li {
   display:inline;
   list-style-type: none;
   padding-right:20px;
 }
 
 
-
-#navigation{padding-left: 30px;padding-right:10px;border-bottom: 1px solid #efefef;border-top: 1px solid #efefef;}
 #content{padding-left: 30px;, padding-right: 10px;}
+#navigation{padding-left: 30px;padding-right:10px;border-bottom: 1px solid #efefef;border-top: 1px solid #efefef;}
+#paragraph_content{padding-left: 30px;, padding-right: 10px;}
+#paragraph_content p{width: 600px;}
 
