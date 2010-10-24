@@ -17,7 +17,8 @@
     <%= render "layouts/navigation" %>
   </div>
   <div id="notifications">
-    <p style="color: green"><%= notice %></p>
+    <p style="color: green"><%= flash[:notice] %></p>
+     <p style="color: red"><%= flash[:error] %></p>
   </div>
   <div id="content">
     <%= yield %>
