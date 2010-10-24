@@ -1,0 +1,22 @@
+a { color: #A0522d; font-weight:bold;font-size: 14px;text-decoration:none; padding-left: 5px;padding-right:5px;}
+a:visited { color: #A0522d; font-weight:bold;font-size: 14px;  padding-left: 5px;padding-right:5px;}
+a:hover { color: #ffdead; background-color:#A0522d; font-weight:bold;font-size: 14px; padding-left: 5px;padding-right:5px; }
+
+body {
+
+  /*background-color: #eee8aa !important; */ /*pale goldenrod */
+  background-color: #ffdead !important; /* Navajo White */
+  color: #A0522d; /* Sienna */
+}
+
+li {
+  display:inline;
+  list-style-type: none;
+  padding-right:20px;
+}
+
+
+
+#navigation{padding-left: 30px;padding-right:10px;border-bottom: 1px solid #efefef;border-top: 1px solid #efefef;}
+#content{padding-left: 30px;, padding-right: 10px;}
+

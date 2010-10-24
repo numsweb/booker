@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :paragraphs
+
+  map.resources :stories
+
+  map.resources :books
+
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.register '/register', :controller => 'users', :action => 'create'
@@ -6,6 +12,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users, :member => { :suspend => :put,
                                  :unsuspend => :put,
                                  :purge     => :delete }
+  map.create_story '/create_story/:book_id', :controller => 'stories', :action => 'new'
+  map.create_paragraph '/create_paragraph/:story_id', :controller => 'paragraphs', :action => 'new'
+  
+  map.edit_story '/edit_story/:book_id/:story_id', :controller => 'stories', :action => 'edit'
+  map.edit_paragraph '/edit_paragraph/:story_id/:paragraph_id', :controller => 'paragraphs', :action => 'edit'
 
   map.resource :session
   map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil

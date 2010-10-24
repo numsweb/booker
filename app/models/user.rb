@@ -19,7 +19,8 @@ class User < ActiveRecord::Base
   validates_format_of       :email,    :with => Authentication.email_regex, :message => Authentication.bad_email_message
 
   
-
+  has_many :books
+  
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
