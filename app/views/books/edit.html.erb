@@ -2,7 +2,6 @@
 
 <% form_for(@book) do |f| %>
   <%= f.error_messages %>
-  <%= link_to "add new story", create_story_path(@book.id) %>
    <%= render :partial => "form", :locals => {:f => f} %>
   <p>
     <%= f.submit 'Update' %>

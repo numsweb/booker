@@ -7,6 +7,7 @@
 
 
 <br/><hr>
+<%= link_to "add new story", create_story_path(@book.id) %>
 <table>
   <% @book.stories.each do |story| %>
 
@@ -20,3 +21,5 @@
     </tr>
   <% end %>
 </table>
+
+

@@ -41,6 +41,7 @@ class BooksController < ApplicationController
   # GET /books/1/edit
   def edit
     @book = Book.find(params[:book_id])
+    @story = @book.stories.new
   end
 
   # POST /books
