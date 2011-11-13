@@ -1,37 +1,27 @@
 # This controller handles the login/logout function of the site.  
 class SessionsController < ApplicationController
-  # Be sure to include AuthenticationSystem in Application Controller instead
-  include AuthenticatedSystem
+
 
   # render new.erb.html
   def new
   end
 
   def create
-    logout_keeping_session!
-    user = User.authenticate(params[:login], params[:password])
-    if user
-      # Protects against session fixation attacks, causes request forgery
-      # protection if user resubmits an earlier form using back
-      # button. Uncomment if you understand the tradeoffs.
-      # reset_session
-      self.current_user = user
-      new_cookie_flag = (params[:remember_me] == "1")
-      handle_remember_cookie! new_cookie_flag
-      redirect_back_or_default("/books")
-      flash[:notice] = "Logged in successfully"
+    user = User.find_by_email(params[:email])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      flash[:info] = "Successfull Login!"
+      redirect_to root_path
     else
-      note_failed_signin
-      @login       = params[:login]
-      @remember_me = params[:remember_me]
-      render :action => 'new'
+      flash.now.alert = "Invalid username or password"
+      render "new"
     end
   end
 
   def destroy
-    logout_killing_session!
-    flash[:notice] = "You have been logged out."
-    redirect_back_or_default('/')
+    session[:user_id] = nil
+    flash[:info] = "You have been logged out."
+    redirect_to('/login')
   end
 
 protected

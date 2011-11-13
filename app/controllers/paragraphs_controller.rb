@@ -1,5 +1,5 @@
 class ParagraphsController < ApplicationController
-  
+  before_filter :login_required
   # GET /paragraphs
   # GET /paragraphs.json
   def index

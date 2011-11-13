@@ -19,8 +19,13 @@ StoryBook::Application.routes.draw do
   get "book/show"
 
   get "book/edit"
+  get "sessions/new"
   
   root :to => 'books#index'
+  
+  resources :sessions 
+  get "login" => "sessions#new", :as => "login"
+  get "logout" => "sessions#destroy", :as => "logout"
  
 
   # The priority is based upon order of creation:

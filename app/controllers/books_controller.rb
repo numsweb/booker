@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   # GET /books
   # GET /books.json
+  before_filter :login_required
   def index
     @books = Book.paginate :page => params[:page], :order => 'created_at DESC'
 
@@ -80,4 +81,7 @@ class BooksController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  private
+ 
 end
