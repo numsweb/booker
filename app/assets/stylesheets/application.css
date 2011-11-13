@@ -6,15 +6,15 @@
  *= require_tree . 
 */
 
-a { color: #A0522d; font-weight:bold;font-size: 14px;text-decoration:none; padding-left: 5px;padding-right:5px;}
-a:visited { color: #A0522d; font-weight:bold;font-size: 14px;  padding-left: 5px;padding-right:5px;}
-a:hover { color: #ffdead; background-color:#A0522d; font-weight:bold;font-size: 14px; padding-left: 5px;padding-right:5px; }
+a { color: #9D6A0A; font-weight:bold;font-size: 14px;text-decoration:none; padding-left: 5px;padding-right:5px;}
+a:visited { color: #9D6A0A; font-weight:bold;font-size: 14px;  padding-left: 5px;padding-right:5px;}
+a:hover { color: #F1EEE3; background-color:#9D6A0A; font-weight:bold;font-size: 14px; padding-left: 5px;padding-right:5px; }
 
 body {
 
   /*background-color: #eee8aa !important; */ /*pale goldenrod */
-  background-color: #ffdead !important; /* Navajo White */
-  color: #A0522d; /* Sienna */
+  background-color: 	#F1EEE3 !important; 
+  color: #9D6A0A; 
 }
 
 #navigation li {
