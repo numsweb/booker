@@ -1,6 +1,14 @@
 <table>
   <tr><td><%= @book.title%></td></tr>
   <tr><td><%= @book.description%></td></tr>
+  <% @book.stories.each do |story| %>
+    <hr><h1><%= story.title %><h1>
+    <h2><%= story.description %> </h2>
+    
+    <% story.paragraphs.each do |paragraph| %>
+      <%= paragraph.body_text %>
+    <% end %>
+  <% end %>
 </table>
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

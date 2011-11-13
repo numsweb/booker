@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :paragraphs
+  map.resources :paragraphs, :member => { :spellchecker => :get}
+
 
   map.resources :stories
 
@@ -18,7 +19,7 @@ ActionController::Routing::Routes.draw do |map|
   map.edit_book '/edit_book/:book_id', :controller => 'books', :action => 'edit'
   map.edit_story '/edit_story/:book_id/:story_id', :controller => 'stories', :action => 'edit'
   map.edit_paragraph '/edit_paragraph/:story_id/:paragraph_id', :controller => 'paragraphs', :action => 'edit'
-
+  map.spellchecker '/spellchecker', :controller => 'paragraphs', :action => 'spellchecker'
   map.resource :session
   map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
 

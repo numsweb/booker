@@ -1,14 +1,12 @@
 class ParagraphsController < ApplicationController
   # GET /paragraphs
   # GET /paragraphs.xml
-   before_filter :login_required
-   uses_tiny_mce :only => [:edit, :new], :options => {
-                              :theme => 'advanced',
-                              :theme_advanced_resizing => true,
-                              :theme_advanced_resize_horizontal => true,
-                              :plugins => %w{ table fullscreen }
-                            }
-     
+  before_filter :login_required, :except => [:spellchecker]
+ ### figure out why the spell checker is bombing out the session!!!
+   include Spelling
+   
+ 
+    
   def index
     @paragraphs = Paragraph.all
 
@@ -90,5 +88,15 @@ class ParagraphsController < ApplicationController
       format.html { redirect_to(paragraphs_url) }
       format.xml  { head :ok }
     end
+  end
+  
+   def spellchecker
+    headers["Content-Type"] = "text/plain"
+    headers["charset"] = "utf-8"
+    suggestions = Spelling::check_spelling(params[:params][1], params[:method], params[:params][0])
+   # puts "\n\ni got this for my suggestions: #{suggestions.inspect}\n\n"
+    results = {"id" => nil, "result" => suggestions, "error" => nil}
+    render :text => results.to_json
+    return
   end
 end

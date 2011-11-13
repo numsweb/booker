@@ -5,7 +5,7 @@ development: &defaults
   pool: 5
   username: rails
   password: rails_rocks
-  socket: /tmp/mysql.sock  
+  #socket: /tmp/mysql.sock  
   database: booker_development
 
 # Warning: The database defined as "test" will be erased and

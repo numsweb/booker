@@ -8,7 +8,9 @@
 
 
 <hr>
-<%= link_to "add new paragraph", create_paragraph_path(@story.id) %>
+<% unless @story.id.blank? %>
+  <%= link_to "add new paragraph", create_paragraph_path(:story_id => @story.id) %>
+<% end %>
     
 <table>
 

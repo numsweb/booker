@@ -7,7 +7,9 @@
 
 
 <br/><hr>
-<%= link_to "add new story", create_story_path(@book.id) %>
+<% unless @book.id.blank? %>
+  <%= link_to "add new story", create_story_path(:book_id => @book.id) %>
+<% end %>
 <table>
   <% @book.stories.each do |story| %>
 
@@ -16,7 +18,9 @@
         <%= story.title %>
       </td>
       <td>
-        <%= link_to "Edit " + story.title, edit_story_path(:book_id=> @book.id, :story_id => story.id) %>
+        <%= link_to "Edit ", edit_story_path(:book_id=> @book.id, :story_id => story.id) %>
+        |
+        <%= link_to "Preview ", story_path(story.id) %>
       </td>
     </tr>
   <% end %>

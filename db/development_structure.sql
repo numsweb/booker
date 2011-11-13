@@ -1,54 +1,54 @@
 CREATE TABLE `books` (
-  `id` int(11) NOT NULL auto_increment,
-  `title` varchar(255) collate utf8_unicode_ci default NULL,
-  `description` text collate utf8_unicode_ci,
-  `user_id` int(11) default NULL,
-  `created_at` datetime default NULL,
-  `updated_at` datetime default NULL,
-  PRIMARY KEY  (`id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci,
+  `user_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `paragraphs` (
-  `id` int(11) NOT NULL auto_increment,
-  `body_text` text collate utf8_unicode_ci,
-  `story_id` int(11) default NULL,
-  `created_at` datetime default NULL,
-  `updated_at` datetime default NULL,
-  `title` varchar(255) collate utf8_unicode_ci default NULL,
-  PRIMARY KEY  (`id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `body_text` text COLLATE utf8_unicode_ci,
+  `story_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `schema_migrations` (
-  `version` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `version` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   UNIQUE KEY `unique_schema_migrations` (`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `stories` (
-  `id` int(11) NOT NULL auto_increment,
-  `title` varchar(255) collate utf8_unicode_ci default NULL,
-  `description` text collate utf8_unicode_ci,
-  `book_id` int(11) default NULL,
-  `created_at` datetime default NULL,
-  `updated_at` datetime default NULL,
-  PRIMARY KEY  (`id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci,
+  `book_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL auto_increment,
-  `login` varchar(40) collate utf8_unicode_ci default NULL,
-  `name` varchar(100) collate utf8_unicode_ci default '',
-  `email` varchar(100) collate utf8_unicode_ci default NULL,
-  `crypted_password` varchar(40) collate utf8_unicode_ci default NULL,
-  `salt` varchar(40) collate utf8_unicode_ci default NULL,
-  `created_at` datetime default NULL,
-  `updated_at` datetime default NULL,
-  `remember_token` varchar(40) collate utf8_unicode_ci default NULL,
-  `remember_token_expires_at` datetime default NULL,
-  `activation_code` varchar(40) collate utf8_unicode_ci default NULL,
-  `activated_at` datetime default NULL,
-  `state` varchar(255) collate utf8_unicode_ci default 'passive',
-  `deleted_at` datetime default NULL,
-  PRIMARY KEY  (`id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `login` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT '',
+  `email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `crypted_password` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `salt` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `remember_token` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `remember_token_expires_at` datetime DEFAULT NULL,
+  `activation_code` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `activated_at` datetime DEFAULT NULL,
+  `state` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'passive',
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
   UNIQUE KEY `index_users_on_login` (`login`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
