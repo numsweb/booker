@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 <table>
   <tr><td><%= @book.title%></td></tr>
-  <tr><td><%= @book.description%></td></tr>
+  <tr><td><%= @book.description.html_safe%></td></tr>
   <% @book.stories.each do |story| %>
     <hr><h1><%= story.title %><h1>
-    <h2><%= story.description %> </h2>
+    <h2><%= story.description.html_safe %> </h2>
     
     <% story.paragraphs.each do |paragraph| %>
       <%= paragraph.body_text.html_safe %>
