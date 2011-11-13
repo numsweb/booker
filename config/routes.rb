@@ -19,16 +19,8 @@ StoryBook::Application.routes.draw do
   get "book/show"
 
   get "book/edit"
-  #match "create_story/:book_id" => "stories#new"
-  #map.create_story '/create_story/:book_id', :controller => 'stories', :action => 'new'
-  match "create_paragraph/:story_id" => "stories#new"
-  #map.create_paragraph '/create_paragraph/:story_id', :controller => 'paragraphs', :action => 'new'
-  match "edit_book/:book_id" => "stories#edit"
- # map.edit_book '/edit_book/:book_id', :controller => 'books', :action => 'edit'
-  match "edit_story/:book_id" => "stories#edit"
-  #map.edit_story '/edit_story/:book_id/:story_id', :controller => 'stories', :action => 'edit'
-  match "edit_paragraph/:story_id" => "paragraphs#edit"
-  #map.edit_paragraph '/edit_paragraph/:story_id/:paragraph_id', :controller => 'paragraphs', :action => 'edit'
+  
+  root :to => 'books#index'
  
 
   # The priority is based upon order of creation:
