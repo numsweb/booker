@@ -1,6 +1,24 @@
-<p><label for="title">Title:</label><br/>
-<%= f.text_field :title %></p>
+<%= form_for(@paragraph) do |f| %>
+  <% if @paragraph.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@paragraph.errors.count, "error") %> prohibited this paragraph from being saved:</h2>
 
-<p><label for="body_text">Paragraph</label><br/>
-<%= f.text_area :body_text, :rows => 20, :cols => 80, :class => "mceEditor" %></p>
-<%= f.hidden_field :story_id, :value => @story.id %>
+      <ul>
+      <% @paragraph.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <p><label for="title">Title:</label><br/>
+  <%= f.text_field :title %></p>
+
+  <p><label for="body_text">Paragraph</label><br/>
+  <%= f.text_area :body_text, :rows => 20, :cols => 80, :class => "mceEditor" %></p>
+  <%= f.hidden_field :story_id, :value => @story.id %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

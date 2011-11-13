@@ -1,12 +1,6 @@
-<h1>Editing book</h1>
+<h1>Editing book by me</h1>
+<%= render 'form' %>
 
-<% form_for(@book) do |f| %>
-  <%= f.error_messages %>
-   <%= render :partial => "form", :locals => {:f => f} %>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
 
 <%= link_to 'Show', @book %> |
-<%= link_to 'Back', books_path %>
+<%= link_to 'Back', books_path%>

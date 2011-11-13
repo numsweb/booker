@@ -1,11 +1,13 @@
+<p id="notice"><%= notice %></p>
+
 <h1><%= @story.title %></hi>
 <hr>
 <div id="paragraph_content">
   <% for paragraph in @story.paragraphs %>
-    <p><%= paragraph.body_text %></p>
+    <p><%= paragraph.body_text.html_safe %></p>
   <% end %>
 </div>
 
 
 <%= link_to 'Edit', edit_story_path(:story_id => @story.id, :book_id => @story.book.id) %> |
-<%= link_to 'Back', edit_book_path(:book_id => @story.book.id)  %>
+<%= link_to 'Back', edit_book_path( @story.book)  %>

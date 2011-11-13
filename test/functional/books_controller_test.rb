@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class BooksControllerTest < ActionController::TestCase
+  setup do
+    @book = books(:one)
+  end
+
   test "should get index" do
     get :index
     assert_response :success
@@ -14,30 +18,30 @@ class BooksControllerTest < ActionController::TestCase
 
   test "should create book" do
     assert_difference('Book.count') do
-      post :create, :book => { }
+      post :create, book: @book.attributes
     end
 
     assert_redirected_to book_path(assigns(:book))
   end
 
   test "should show book" do
-    get :show, :id => books(:one).to_param
+    get :show, id: @book.to_param
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => books(:one).to_param
+    get :edit, id: @book.to_param
     assert_response :success
   end
 
   test "should update book" do
-    put :update, :id => books(:one).to_param, :book => { }
+    put :update, id: @book.to_param, book: @book.attributes
     assert_redirected_to book_path(assigns(:book))
   end
 
   test "should destroy book" do
     assert_difference('Book.count', -1) do
-      delete :destroy, :id => books(:one).to_param
+      delete :destroy, id: @book.to_param
     end
 
     assert_redirected_to books_path

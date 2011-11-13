@@ -1,4 +1,17 @@
-<p><label for="title">Title:</label><br/>
+<%= form_for(@book) do |f| %>
+  <% if @book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this story from being saved:</h2>
+
+      <ul>
+      <% @book.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <p><label for="title">Title:</label><br/>
 <%= f.text_field :title %></p>
 
 
@@ -8,7 +21,7 @@
 
 <br/><hr>
 <% unless @book.id.blank? %>
-  <%= link_to "add new story", create_story_path(:book_id => @book.id) %>
+  <%= link_to "add new story", new_story_path(:book_id => @book.id) %>
 <% end %>
 <table>
   <% @book.stories.each do |story| %>
@@ -27,3 +40,7 @@
 </table>
 
 
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

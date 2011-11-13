@@ -1,3 +1,4 @@
+<p id="notice"><%= notice %></p>
 <table>
   <tr><td><%= @book.title%></td></tr>
   <tr><td><%= @book.description%></td></tr>
@@ -6,7 +7,7 @@
     <h2><%= story.description %> </h2>
     
     <% story.paragraphs.each do |paragraph| %>
-      <%= paragraph.body_text %>
+      <%= paragraph.body_text.html_safe %>
     <% end %>
   <% end %>
 </table>

@@ -1,4 +1,17 @@
-<p><label for="title">Title:</label><br/>
+<%= form_for(@story) do |f| %>
+  <% if @story.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@story.errors.count, "error") %> prohibited this story from being saved:</h2>
+
+      <ul>
+      <% @story.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <p><label for="title">Title:</label><br/>
 <%= f.text_field :title %></p>
 
 
@@ -9,7 +22,7 @@
 
 <hr>
 <% unless @story.id.blank? %>
-  <%= link_to "add new paragraph", create_paragraph_path(:story_id => @story.id) %>
+  <%= link_to "add new paragraph", new_paragraph_path(:story_id => @story.id) %>
 <% end %>
     
 <table>
@@ -27,3 +40,9 @@
 
   <% end %>
 </table>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

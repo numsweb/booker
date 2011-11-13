@@ -1,8 +1,5 @@
-<%= @paragraph.body_text %>
+<p id="notice"><%= notice %></p>
 
 
-
-
-<%= link_to("Edit paragraph", edit_paragraph_path(:story_id=> @paragraph.story.id, :paragraph_id => @paragraph.id)) %>
- |
-<%= link_to 'Back to edit story', edit_story_path(:book_id=> @paragraph.story.book.id, :story_id => @paragraph.story.id)  %>
+<%= link_to 'Edit', edit_paragraph_path(@paragraph) %> |
+<%= link_to 'Back', paragraphs_path %>
